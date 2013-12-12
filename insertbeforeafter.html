@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+<style>
+    .SlideText {
+    width:200px;
+    height:70px;
+    text-align:center;
+    position:absolute;
+    top:410px;
+    left:490px;
+    background:lightblue;
+    }
+    #element1 {
+    width:300px;
+    height:150px;
+    text-align:center;
+    background:#f38f42;
+    }
+    #element2 {
+    width:300px;
+    height:150px;
+    text-align:center;
+    background:#f42942;
+    }
+    #tb {
+    width:450px;
+    background-color:#c8f31b;
+    }
+    #centerdiv
+    {
+        width:300px;
+        height:150px;
+        background:#ff006e;
+        text-align:center;
+    }
+        
+</style>
+</head>
+<body>
+<script src="jquery-1.10.2.min.js"></script>
+<p>Enter "element1" or "element2" without quotations in the text box.</p>
+<input type="text" placeholder="Element after/before which you want to insert the new element." id="tb" />
+<input type="button" id="InsertAfterBtn" value="Insert After" onclick="InsertAfter()"/>
+<input type="button" id="InsertBeforeBtn" value="Insert Before " onclick="InsertBefore()"/>
+<div id="element1">
+</div>
+<div id="element2">
+</div>
+<div id="centerdiv"></div>
+        <script>
+            $("#element1").html("This is div1</br> Id=element1 ");
+            $("#element2").html("This is div2</br> id=element2 ");
+            
+            
+            $(document).ready(function () {
+                $('#InsertAfterBtn').click(function () {
+                    var insertElement = $('#tb').val();
+                    $("#" + insertElement).insertAfter($("#centerdiv"));
+                });
+            });
+        
+            $(document).ready(function () {
+                $('#InsertBeforeBtn').click(function () {
+                    var insertElement = $('#tb').val();
+                    $("#" + insertElement).insertBefore($("#centerdiv"));
+                });
+            });
+        </script>
+</body>
+</html>
